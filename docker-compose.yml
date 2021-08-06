@@ -8,8 +8,13 @@ services:
         - ./nginx:/etc/nginx:ro
       environment:
         NGINX_PORT: 80
-  srdecny:
-    container_name: srdecny.php
+  srdecny.php-5.6:
+    container_name: srdecny.php-5.6
+    image: php:5.6-apache
+    volumes:
+      - ./srdecny/5.6:/var/www/html
+  student.php-7.4:
+    container_name: srdecny.php-7.4
     image: php:7.4-apache
     volumes:
-      - ./srdecny:/var/www/html
+      - ./srdecny/7.4:/var/www/html
